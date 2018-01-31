@@ -1,0 +1,27 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Laravel/ms-lists
+      to: /home/vagrant/laravel/ms-lists
+
+    - map: ~/Laravel/ms-sdcqas
+      to: /home/vagrant/laravel/ms-sdcqas
+
+sites:
+    - map: lists.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-lists/public
+
+    - map: sdcqas.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-lists/public
+
+databases:
+    - lists
