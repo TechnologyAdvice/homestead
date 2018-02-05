@@ -10,6 +10,9 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
+    - map: ~/Laravel/ms-five9
+      to: /home/vagrant/laravel/ms-five9
+
     - map: ~/Laravel/ms-lists
       to: /home/vagrant/laravel/ms-lists
 
@@ -17,11 +20,14 @@ folders:
       to: /home/vagrant/laravel/ms-sdcqas
 
 sites:
+    - map: five9.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-five9/public
+
     - map: lists.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-lists/public
 
     - map: sdcqas.local-ms.taplatform.net
-      to: /home/vagrant/laravel/ms-lists/public
+      to: /home/vagrant/laravel/ms-sdcqas/public
 
 databases:
     - lists
