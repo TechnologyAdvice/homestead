@@ -20,7 +20,7 @@
 * Setup Existing Laravel Microservices:
     * **NOTE:** The folder `~/Laravel` must exist on your local computer to work with our homestead settings. If it does not exist, create it: `# mkdir ~/Laravel`
     * Clone Five9 Microservice:  
-    `# git clone git@github.com:TechnologyAdvice/ms-lists.git ~/Laravel/ms-five9`
+    `# git clone git@github.com:TechnologyAdvice/ms-five9.git ~/Laravel/ms-five9`
     * Clone Lists Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-lists.git ~/Laravel/ms-lists`
     * Clone Standardized & Dependent Custom Questions & Answers Microservice:  
