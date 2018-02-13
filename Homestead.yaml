@@ -30,4 +30,4 @@ sites:
       to: /home/vagrant/laravel/ms-sdcqas/public
 
 databases:
-    - lists
+    - tap_local
