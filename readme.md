@@ -19,6 +19,8 @@
     * Update this README if you create a new Laravel Microservice!
 * Setup Existing Laravel Microservices:
     * **NOTE:** The folder `~/Laravel` must exist on your local computer to work with our homestead settings. If it does not exist, create it: `# mkdir ~/Laravel`
+    * Clone Emails Microservice:  
+    `# git clone git@github.com:TechnologyAdvice/ms-emails.git ~/Laravel/ms-emails`
     * Clone Five9 Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-five9.git ~/Laravel/ms-five9`
     * Clone Lists Microservice:  
@@ -27,6 +29,7 @@
     `# git clone git@github.com:TechnologyAdvice/ms-sdcqas.git ~/Laravel/ms-sdcqas`
     * Edit your `/etc/hosts` file
     ```
+    192.168.10.10 emails.local-ms.taplatform.net
     192.168.10.10 five9.local-ms.taplatform.net
     192.168.10.10 lists.local-ms.taplatform.net
     192.168.10.10 sdcqas.local-ms.taplatform.net

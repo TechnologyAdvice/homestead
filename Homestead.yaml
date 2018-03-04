@@ -10,6 +10,9 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
+    - map: ~/Laravel/ms-emails
+      to: /home/vagrant/laravel/ms-emails
+
     - map: ~/Laravel/ms-five9
       to: /home/vagrant/laravel/ms-five9
 
@@ -20,6 +23,9 @@ folders:
       to: /home/vagrant/laravel/ms-sdcqas
 
 sites:
+    - map: emails.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-emails/public
+
     - map: five9.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-five9/public
 
@@ -30,4 +36,4 @@ sites:
       to: /home/vagrant/laravel/ms-sdcqas/public
 
 databases:
-    - tap_local
+    - ms_local
