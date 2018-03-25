@@ -10,6 +10,9 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
+    - map: ~/Laravel/ms-calls
+      to: /home/vagrant/laravel/ms-calls
+
     - map: ~/Laravel/ms-data-checks
       to: /home/vagrant/laravel/ms-data-checks
 
@@ -26,6 +29,9 @@ folders:
       to: /home/vagrant/laravel/ms-sdcqas
 
 sites:
+    - map: calls.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-calls/public
+
     - map: data-checks.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-data-checks/public
 
