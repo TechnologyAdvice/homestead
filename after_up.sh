@@ -14,6 +14,7 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
 
 # SETUP ms-data-checks
 cd ~/Laravel/ms-data-checks
@@ -22,6 +23,7 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
 
 # SETUP ms-emails
 cd ~/Laravel/ms-emails
@@ -30,6 +32,7 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
 
 # SETUP ms-five9
 cd ~/Laravel/ms-five9
@@ -38,6 +41,7 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
 
 # SETUP ms-lists
 cd ~/Laravel/ms-lists
@@ -46,6 +50,7 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
 
 # SETUP ms-sdcqas
 cd ~/Laravel/ms-sdcqas
@@ -54,3 +59,4 @@ echo "DB_PORT=54320" >> .env
 php artisan key:generate
 php artisan migrate --force
 cp -p .env.example .env
+php artisan key:generate
