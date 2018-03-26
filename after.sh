@@ -10,6 +10,7 @@ export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 # SETUP time server
 sudo apt-get -y install ntp
+sudo service ntp restart
 
 # SETUP ms-calls
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists calls;'
