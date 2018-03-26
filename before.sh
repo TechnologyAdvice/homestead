@@ -10,7 +10,7 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
 
 # SETUP ms-data-checks
 cd ~/Laravel/ms-data-checks/
@@ -20,7 +20,7 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
 
 # SETUP ms-emails
 cd ~/Laravel/ms-emails/
@@ -30,7 +30,7 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
 
 # SETUP ms-five9
 cd ~/Laravel/ms-five9/
@@ -40,7 +40,7 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
 
 # SETUP ms-lists
 cd ~/Laravel/ms-lists/
@@ -50,7 +50,7 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
 
 # SETUP ms-sdcqas
 cd ~/Laravel/ms-sdcqas/
@@ -60,4 +60,4 @@ git checkout staging
 git pull origin staging
 composer install
 npm install
-npm run prod
+npm run dev
