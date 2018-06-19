@@ -29,7 +29,9 @@ psql -hlocalhost -Uhomestead ms_local < /home/vagrant/laravel/ms-emails/storage/
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists five9;'
 
 # SETUP ms-geo
+sudo apt-get -y -q install postgis
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists geo;'
+psql -hlocalhost -Uhomestead -dms_local -w -c 'create extension postgis schema public;'
 
 # SETUP ms-leads
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists leads;'
