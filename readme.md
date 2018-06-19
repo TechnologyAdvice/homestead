@@ -19,6 +19,8 @@
     * Update this README if you create a new Laravel Microservice!
 * Setup Existing Laravel Microservices:
     * **NOTE:** The folder `~/Laravel` must exist on your local computer to work with our homestead settings. If it does not exist, create it: `# mkdir ~/Laravel`
+    * Clone Accounts Microservice:  
+    `# git clone git@github.com:TechnologyAdvice/ms-accounts.git ~/Laravel/ms-accounts`
     * Clone Calls Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-calls.git ~/Laravel/ms-calls`
     * Clone Data Checks Microservice:  
@@ -27,18 +29,28 @@
     `# git clone git@github.com:TechnologyAdvice/ms-emails.git ~/Laravel/ms-emails`
     * Clone Five9 Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-five9.git ~/Laravel/ms-five9`
+    * Clone Geo Microservice:  
+    `# git clone git@github.com:TechnologyAdvice/ms-geo.git ~/Laravel/ms-geo`    
+    * Clone Leads Microservice:  
+    `# git clone git@github.com:TechnologyAdvice/ms-leads.git ~/Laravel/ms-leads`      
     * Clone Lists Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-lists.git ~/Laravel/ms-lists`
     * Clone Standardized & Dependent Custom Questions & Answers Microservice:  
     `# git clone git@github.com:TechnologyAdvice/ms-sdcqas.git ~/Laravel/ms-sdcqas`
+    * Clone Template Microservice:  
+    `# git clone git@github.com:TechnologyAdvice/ms-template.git ~/Laravel/ms-template`
     * Edit your `/etc/hosts` file
     ```
+    192.168.10.10 accounts.local-ms.taplatform.net
     192.168.10.10 calls.local-ms.taplatform.net
     192.168.10.10 data-checks.local-ms.taplatform.net
     192.168.10.10 emails.local-ms.taplatform.net
     192.168.10.10 five9.local-ms.taplatform.net
+    192.168.10.10 geo.local-ms.taplatform.net
+    192.168.10.10 leads.local-ms.taplatform.net
     192.168.10.10 lists.local-ms.taplatform.net
     192.168.10.10 sdcqas.local-ms.taplatform.net
+    192.168.10.10 template.local-ms.taplatform.net
     ```
 * Run Microservices Locally: `# cd ~/Projects/homestead && vagrant up`
     * Now visit Microservices at URLs listed in `/etc/hosts` such as http://lists.local-ms.taplatform.net

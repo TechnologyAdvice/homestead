@@ -7,6 +7,15 @@
 export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
+# SETUP ms-accounts
+cd ~/Laravel/ms-accounts
+cp -p .env.example .env
+echo "DB_PORT=54320" >> .env
+php artisan key:generate
+php artisan migrate --force
+cp -p .env.example .env
+php artisan key:generate
+
 # SETUP ms-calls
 cd ~/Laravel/ms-calls
 cp -p .env.example .env
@@ -43,6 +52,24 @@ php artisan migrate --force
 cp -p .env.example .env
 php artisan key:generate
 
+# SETUP ms-geo
+cd ~/Laravel/ms-geo
+cp -p .env.example .env
+echo "DB_PORT=54320" >> .env
+php artisan key:generate
+php artisan migrate --force
+cp -p .env.example .env
+php artisan key:generate
+
+# SETUP ms-leads
+cd ~/Laravel/ms-leads
+cp -p .env.example .env
+echo "DB_PORT=54320" >> .env
+php artisan key:generate
+php artisan migrate --force
+cp -p .env.example .env
+php artisan key:generate
+
 # SETUP ms-lists
 cd ~/Laravel/ms-lists
 cp -p .env.example .env
@@ -54,6 +81,15 @@ php artisan key:generate
 
 # SETUP ms-sdcqas
 cd ~/Laravel/ms-sdcqas
+cp -p .env.example .env
+echo "DB_PORT=54320" >> .env
+php artisan key:generate
+php artisan migrate --force
+cp -p .env.example .env
+php artisan key:generate
+
+# SETUP ms-template
+cd ~/Laravel/ms-template
 cp -p .env.example .env
 echo "DB_PORT=54320" >> .env
 php artisan key:generate

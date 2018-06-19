@@ -10,6 +10,9 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
+    - map: ~/Laravel/ms-accounts
+      to: /home/vagrant/laravel/ms-accounts
+
     - map: ~/Laravel/ms-calls
       to: /home/vagrant/laravel/ms-calls
 
@@ -22,13 +25,25 @@ folders:
     - map: ~/Laravel/ms-five9
       to: /home/vagrant/laravel/ms-five9
 
+    - map: ~/Laravel/ms-geo
+      to: /home/vagrant/laravel/ms-geo
+
+    - map: ~/Laravel/ms-leads
+      to: /home/vagrant/laravel/ms-leads
+
     - map: ~/Laravel/ms-lists
       to: /home/vagrant/laravel/ms-lists
 
     - map: ~/Laravel/ms-sdcqas
       to: /home/vagrant/laravel/ms-sdcqas
 
+    - map: ~/Laravel/ms-template
+      to: /home/vagrant/laravel/ms-template
+
 sites:
+    - map: accounts.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-accounts/public
+
     - map: calls.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-calls/public
 
@@ -41,11 +56,20 @@ sites:
     - map: five9.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-five9/public
 
+    - map: geo.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-geo/public
+
+    - map: leads.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-leads/public
+
     - map: lists.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-lists/public
 
     - map: sdcqas.local-ms.taplatform.net
       to: /home/vagrant/laravel/ms-sdcqas/public
+
+    - map: template.local-ms.taplatform.net
+      to: /home/vagrant/laravel/ms-template/public
 
 databases:
     - ms_local
