@@ -12,7 +12,7 @@ class Homestead
         # Configure The Box
         config.vm.define settings["name"] ||= "homestead-7"
         config.vm.box = settings["box"] ||= "laravel/homestead"
-        config.vm.box_version = settings["version"] ||= ">= 4.0.0"
+        config.vm.box_version = settings["version"] ||= ">= 6.0.0"
         config.vm.hostname = settings["hostname"] ||= "homestead"
 
         # Configure A Private Network IP
@@ -197,7 +197,12 @@ class Homestead
 
                 type = site["type"] ||= "laravel"
 
-                if (type == "symfony")
+                case type
+                when "apigility"
+                    type = "zf"
+                when "expressive"
+                    type = "zf"
+                when "symfony"
                     type = "symfony2"
                 end
 
@@ -216,6 +221,12 @@ class Homestead
                     if site["zray"] == 'true'
                         config.vm.provision "shell" do |s|
                             s.inline = "ln -sf /opt/zray/gui/public " + site["to"] + "/ZendServer"
+                        end
+                        config.vm.provision "shell" do |s|
+                            s.inline = "ln -sf /opt/zray/lib/zray.so /usr/lib/php/20170718/zray.so"
+                        end
+                        config.vm.provision "shell" do |s|
+                            s.inline = "ln -sf /opt/zray/zray.ini /etc/php/7.2/fpm/conf.d/zray.ini"
                         end
                     else
                         config.vm.provision "shell" do |s|
@@ -296,20 +307,6 @@ class Homestead
             s.inline = "sudo service nginx restart; sudo service php5.6-fpm restart; sudo service php7.0-fpm restart; sudo service php7.1-fpm restart; sudo service php7.2-fpm restart"
         end
 
-        # Install MariaDB If Necessary
-        if settings.has_key?("mariadb") && settings["mariadb"]
-            config.vm.provision "shell" do |s|
-                s.path = scriptDir + "/install-maria.sh"
-            end
-        end
-
-        # Install MongoDB If Necessary
-        if settings.has_key?("mongodb") && settings["mongodb"]
-            config.vm.provision "shell" do |s|
-                s.path = scriptDir + "/install-mongo.sh"
-            end
-        end
-
         # Install CouchDB If Necessary
         if settings.has_key?("couchdb") && settings["couchdb"]
             config.vm.provision "shell" do |s|
@@ -321,11 +318,36 @@ class Homestead
         if settings.has_key?("elasticsearch") && settings["elasticsearch"]
             config.vm.provision "shell" do |s|
                 s.name = "Installing Elasticsearch"
-                if settings["elasticsearch"] == 6
-                    s.path = scriptDir + "/install-elasticsearch6.sh"
-                else
-                    s.path = scriptDir + "/install-elasticsearch5.sh"
-                end
+                s.path = scriptDir + "/install-elasticsearch.sh"
+                s.args = settings["elasticsearch"]
+            end
+        end
+
+        # Install MariaDB If Necessary
+        if settings.has_key?("mariadb") && settings["mariadb"]
+            config.vm.provision "shell" do |s|
+                s.path = scriptDir + "/install-maria.sh"
+            end
+        end
+
+        # Install Minio If Necessary
+        if settings.has_key?("minio") && settings["minio"]
+            config.vm.provision "shell" do |s|
+                s.path = scriptDir + "/install-minio.sh"
+            end
+        end
+
+        # Install MongoDB If Necessary
+        if settings.has_key?("mongodb") && settings["mongodb"]
+            config.vm.provision "shell" do |s|
+                s.path = scriptDir + "/install-mongo.sh"
+            end
+        end
+
+        # Install Neo4j If Necessary
+        if settings.has_key?("neo4j") && settings["neo4j"]
+            config.vm.provision "shell" do |s|
+                s.path = scriptDir + "/install-neo4j.sh"
             end
         end
 
@@ -387,6 +409,30 @@ class Homestead
             s.path = scriptDir + "/create-ngrok.sh"
             s.args = [settings["ip"]]
             s.privileged = false
+        end
+
+        if settings.has_key?("backup") && settings["backup"] && (Vagrant::VERSION >= '2.1.0' || Vagrant.has_plugin('vagrant-triggers'))
+            dirPrefix = '/vagrant/'
+            settings["databases"].each do |database|
+                Homestead.backupMysql(database, "#{dirPrefix}/mysql_backup", config)
+                Homestead.backupPostgres(database, "#{dirPrefix}/postgres_backup", config)
+            end
+        end
+    end
+
+    def Homestead.backupMysql(database, dir, config)
+        now = Time.now.strftime("%Y%m%d%H%M")
+        config.trigger.before :destroy do |trigger|
+            trigger.warn = "Backing up mysql database #{database}..."
+            trigger.run_remote = {"inline": "mkdir -p #{dir} && mysqldump #{database} > #{dir}/#{database}-#{now}.sql"}
+        end
+    end
+
+    def Homestead.backupPostgres(database, dir, config)
+        now = Time.now.strftime("%Y%m%d%H%M")
+        config.trigger.before :destroy do |trigger|
+            trigger.warn = "Backing up postgres database #{database}..."
+            trigger.run_remote = {"inline": "mkdir -p #{dir} && echo localhost:5432:#{database}:homestead:secret > ~/.pgpass && chmod 600 ~/.pgpass && pg_dump -U homestead -h localhost #{database} > #{dir}/#{database}-#{now}.sql"}
         end
     end
 end

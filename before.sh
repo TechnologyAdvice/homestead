@@ -2,6 +2,16 @@
 
 # Run this BEFORE you run "vagrant up"
 
+# SETUP ms-accounts
+cd ~/Laravel/ms-accounts/
+git add .
+git stash
+git checkout staging
+git pull origin staging
+composer install
+npm install
+npm run dev
+
 # SETUP ms-calls
 cd ~/Laravel/ms-calls/
 git add .
@@ -42,6 +52,26 @@ composer install
 npm install
 npm run dev
 
+# SETUP ms-geo
+cd ~/Laravel/ms-geo/
+git add .
+git stash
+git checkout staging
+git pull origin staging
+composer install
+npm install
+npm run dev
+
+# SETUP ms-leads
+cd ~/Laravel/ms-leads/
+git add .
+git stash
+git checkout staging
+git pull origin staging
+composer install
+npm install
+npm run dev
+
 # SETUP ms-lists
 cd ~/Laravel/ms-lists/
 git add .
@@ -54,6 +84,16 @@ npm run dev
 
 # SETUP ms-sdcqas
 cd ~/Laravel/ms-sdcqas/
+git add .
+git stash
+git checkout staging
+git pull origin staging
+composer install
+npm install
+npm run dev
+
+# SETUP ms-template
+cd ~/Laravel/ms-template/
 git add .
 git stash
 git checkout staging
