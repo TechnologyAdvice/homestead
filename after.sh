@@ -23,7 +23,6 @@ psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists data_
 
 # SETUP ms-emails
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists emails;'
-psql -hlocalhost -Uhomestead ms_local < /home/vagrant/laravel/ms-emails/storage/emails.sql
 
 # SETUP ms-five9
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists five9;'
@@ -38,7 +37,6 @@ psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists leads
 
 # SETUP ms-lists
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists lists;'
-psql -hlocalhost -Uhomestead ms_local < /home/vagrant/laravel/ms-lists/storage/lists.sql
 
 # SETUP ms-sdcqas
 psql -hlocalhost -Uhomestead -dms_local -w -c 'create schema if not exists sdcqas;'
